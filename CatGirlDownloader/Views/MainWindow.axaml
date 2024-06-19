@@ -1,0 +1,45 @@
+<Window 
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="using:CatGirlDownloader.ViewModels"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+    x:Class="CatGirlDownloader.Views.MainWindow"
+    x:DataType="vm:MainWindowViewModel"
+    Icon="/Assets/avalonia-logo.ico"
+    Title="CatGirlDownloader"
+>
+    <Window.Styles>
+        <Style Selector="Button.Round">
+            <Setter Property="Margin" Value="0, 5"/>
+            <Setter Property="Padding" Value="15"/>
+            
+            <Setter Property="CornerRadius" Value="50"/>
+            
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+    </Window.Styles>
+    
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+    <Grid ColumnDefinitions="100, *">
+        <StackPanel Grid.Column="0" VerticalAlignment="Bottom">
+            <Button Classes="Round" Command="{Binding SaveKittyCommand}">
+                <Image Source="../Assets/file.png" Width="35" Height="35"></Image>
+            </Button>
+            <Button Classes="Round" Command="{Binding NewKittyCommand}">
+                <Image Source="../Assets/next.png" Width="35" Height="35" Margin="2, 0, 0, 0"></Image>
+            </Button>
+        </StackPanel>
+        
+        <Image Grid.Column="1"
+            Stretch="Uniform"
+            Source="{Binding Image}"
+            MaxHeight="1000"
+            MaxWidth="800"
+        /> 
+    </Grid>
+</Window>
