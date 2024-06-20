@@ -20,7 +20,7 @@
     <Design.DataContext>
         <vm:MainWindowViewModel/>
     </Design.DataContext>
-    <Grid ColumnDefinitions="100, *" ShowGridLines="True">
+    <Grid ColumnDefinitions="100, *">
         <StackPanel Grid.Column="0" VerticalAlignment="Bottom">
             <Button Classes="Round LikeButton" IsEnabled="{Binding SaveEnabled}" Command="{Binding SaveKittyCommand}" HotKey="Ctrl+S">
                 <Image Source="/Assets/file.png" Width="35" Height="35" Margin="2 0 0 0 "></Image>
