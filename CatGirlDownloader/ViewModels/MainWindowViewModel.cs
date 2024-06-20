@@ -11,7 +11,7 @@ using ReactiveUI;
 
 namespace CatGirlDownloader.ViewModels;
 
-public class MainWindowViewModel : ViewModelBase
+public class MainWindowViewModel : ReactiveObject
 {
     private readonly Nekos _neko = new Nekos();
 
