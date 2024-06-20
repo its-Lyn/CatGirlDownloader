@@ -1,0 +1,38 @@
+<Styles 
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+>
+    <Style Selector="Button.Round">
+        <Setter Property="Margin" Value="0, 5"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Padding" Value="15"/>
+        <Setter Property="CornerRadius" Value="50"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        
+        <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="2"/>
+                    
+            <Setter Property="Transitions">
+                <Transitions>
+                    <BrushTransition Property="Background" Duration="0:0:0.1"/>
+                </Transitions>
+            </Setter>    
+        </Style>
+    </Style>
+    
+    <Style Selector="Button.LikeButton">
+        <Setter Property="Background" Value="#F3D0D7"/>
+       
+        <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+             <Setter Property="Background" Value="#f5dce1"/>
+        </Style>
+    </Style>
+    
+    <Style Selector="Button.NextButton">
+       <Setter Property="Background" Value="#a6e3c7"/>
+        <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="#b9f0d7"/>
+        </Style>
+    </Style>
+</Styles>

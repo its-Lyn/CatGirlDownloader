@@ -10,7 +10,7 @@ public class Nekos
 {
     private readonly NekoClient _client = new NekoClient();
 
-    public async Task<MemoryStream> GetKittyUrl()
+    public async Task<MemoryStream> GetKittyStream()
     {
         var kitty = await _client.GetGenericEndpoint<NekoResult<NekoImage>>("neko");
         return new MemoryStream(await _client.GetByteFromUrl(kitty.Results.First().Url));

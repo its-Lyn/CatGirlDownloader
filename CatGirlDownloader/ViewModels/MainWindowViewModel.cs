@@ -49,7 +49,7 @@ public class MainWindowViewModel : ViewModelBase
     {
         Image?.Dispose();
 
-        MemoryStream stream = await _neko.GetKittyUrl();
+        MemoryStream stream = await _neko.GetKittyStream();
         Image = new Bitmap(stream);
     }
 }
