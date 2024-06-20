@@ -18,12 +18,12 @@ Below you will find a guide on how to install Cargirl Downloader.
 ## Keybinds
 When running the app, instead of the buttons you can use the keybinds described below.
 
-| Keybind  | Descrition            |
-|----------|-----------------------|
-| Ctrl + S | Save image locally.   |
-| Ctrl + N | Fetch the next image. |
-| Ctrl + P | Go back to last image.|  
-| Ctrl + O | Open options.         |
+| Keybind  | Description            |
+|----------|------------------------|
+| Ctrl + S | Save image locally.    |
+| Ctrl + N | Fetch the next image.  |
+| Ctrl + P | Go back to last image. |  
+| Ctrl + O | Open options.          |
 
 > [!NOTE]
 > Options have not yet been implemented.
