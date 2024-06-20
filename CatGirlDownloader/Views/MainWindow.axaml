@@ -9,10 +9,8 @@
     x:DataType="vm:MainWindowViewModel"
     Icon="/Assets/avalonia-logo.ico"
     Title="CatGirl Downloader"
-    
     MinWidth="600"
     MinHeight="500"
-    
     Background="#F6F5F2"
 >
     <Window.Styles>
@@ -22,19 +20,20 @@
     <Design.DataContext>
         <vm:MainWindowViewModel/>
     </Design.DataContext>
-
     <Grid ColumnDefinitions="100, *">
         <StackPanel Grid.Column="0" VerticalAlignment="Bottom">
-            <Button Classes="Round LikeButton" Command="{Binding SaveKittyCommand}">
+            <Button Classes="Round LikeButton" Command="{Binding SaveKittyCommand}" HotKey="Ctrl+S">
                 <Image Source="/Assets/file.png" Width="35" Height="35"></Image>
             </Button>    
             
-            <Button Classes="Round NextButton" Command="{Binding NewKittyCommand}">
+            <Button Classes="Round NextButton" Command="{Binding NewKittyCommand}" HotKey="Ctrl+N">
                 <Image Source="/Assets/next.png" Width="35" Height="35" Margin="2, 0, 0, 0"></Image>
             </Button>
         </StackPanel>
         
-        <Image Grid.Column="1"
+        <Image 
+            Grid.Column="1"
+            
             Stretch="Uniform"
             Source="{Binding Image}"
             MaxHeight="1000"

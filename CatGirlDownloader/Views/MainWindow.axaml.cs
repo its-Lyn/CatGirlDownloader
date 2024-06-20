@@ -5,7 +5,7 @@ namespace CatGirlDownloader.Views;
 
 public partial class MainWindow : Window
 {
-    public MainWindowViewModel Model => (MainWindowViewModel)DataContext!;
+    public MainWindowViewModel ViewModel => (MainWindowViewModel)DataContext!;
     public static MainWindow Instance = null!;
     
     public MainWindow()
@@ -17,7 +17,5 @@ public partial class MainWindow : Window
     }
 
     private async void Load(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
-    {
-        await Model.GetNewKitty();
-    }
+        => await ViewModel.GetNewKitty();
 }
