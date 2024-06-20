@@ -22,6 +22,7 @@ When running the app, instead of the buttons you can use the keybinds described 
 |----------|-----------------------|
 | Ctrl + S | Save image locally.   |
 | Ctrl + N | Fetch the next image. |
+| Ctrl + P | Go back to last image.|  
 | Ctrl + O | Open options.         |
 
 > [!NOTE]

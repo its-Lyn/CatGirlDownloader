@@ -1,5 +1,8 @@
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text.Json.Serialization;
+using System.Threading.Tasks;
 
 namespace CatGirlDownloader.Models;
 
@@ -22,4 +25,13 @@ public struct NekoResult<T>
 {
     [JsonPropertyName("results")]
     public List<T> Results { get; set; }
+}
+
+public record KittyData(MemoryStream Stream, string Url) : IDisposable, IAsyncDisposable
+{
+    public void Dispose()
+        => Stream.Dispose();
+
+    public async ValueTask DisposeAsync()
+        => await Stream.DisposeAsync();
 }

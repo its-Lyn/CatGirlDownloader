@@ -16,14 +16,25 @@
             <Setter Property="Transitions">
                 <Transitions>
                     <BrushTransition Property="Background" Duration="0:0:0.1"/>
+                    <DoubleTransition Property="Opacity" Duration="0:0:0.1"/>
                 </Transitions>
             </Setter>    
+        </Style>
+    </Style>
+   
+    <Style Selector="Button.BackButton">
+        <Setter Property="Background" Value="#fc92ab"/>
+        <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="#ffa8bd"/>
+        </Style>
+        
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity" Value="0.5"/>
         </Style>
     </Style>
     
     <Style Selector="Button.LikeButton">
         <Setter Property="Background" Value="#F3D0D7"/>
-       
         <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
              <Setter Property="Background" Value="#f5dce1"/>
         </Style>
