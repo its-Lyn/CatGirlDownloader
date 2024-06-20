@@ -20,16 +20,16 @@
                 </Transitions>
             </Setter>    
         </Style>
+        
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity" Value="0.5"/>
+        </Style>
     </Style>
    
     <Style Selector="Button.BackButton">
         <Setter Property="Background" Value="#fc92ab"/>
         <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="Background" Value="#ffa8bd"/>
-        </Style>
-        
-        <Style Selector="^:disabled">
-            <Setter Property="Opacity" Value="0.5"/>
         </Style>
     </Style>
     

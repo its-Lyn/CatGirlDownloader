@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Avalonia.Controls;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform.Storage;
 using CatGirlDownloader.Models;
@@ -31,7 +29,21 @@ public class MainWindowViewModel : ReactiveObject
         get => _previousEnabled;
         set => this.RaiseAndSetIfChanged(ref _previousEnabled, value);
     }
-
+    
+    private bool _nextEnabled;
+    public bool NextEnabled
+    {
+        get => _nextEnabled;
+        set => this.RaiseAndSetIfChanged(ref _nextEnabled, value);
+    }
+    
+    private bool _saveEnabled;
+    public bool SaveEnabled
+    {
+        get => _saveEnabled;
+        set => this.RaiseAndSetIfChanged(ref _saveEnabled, value);
+    }
+        
     public ICommand NewKittyCommand { get; }
     public ICommand PreviousKittyCommand { get; }
     public ICommand SaveKittyCommand { get; }
@@ -41,8 +53,6 @@ public class MainWindowViewModel : ReactiveObject
 
     public MainWindowViewModel()
     {
-        _previousEnabled = false;
-        
         SaveKittyCommand = ReactiveCommand.Create(SaveKitty);
         NewKittyCommand = ReactiveCommand.Create(GetNewKitty);
         PreviousKittyCommand = ReactiveCommand.Create(GetPreviousKitty);
@@ -50,10 +60,12 @@ public class MainWindowViewModel : ReactiveObject
 
     private void CheckActive()
     {
-        if (_activeUrl > 0)
-            PreviousEnabled = true;
-        else if (_activeUrl == 0)
-            PreviousEnabled = false;
+        PreviousEnabled = _activeUrl switch
+        {
+            > 0 => true,
+            0 => false,
+            _ => PreviousEnabled
+        };
     }
     
     private async Task SaveKitty()
@@ -72,15 +84,25 @@ public class MainWindowViewModel : ReactiveObject
 
     private async Task GetPreviousKitty()
     {
-        _activeUrl--;
-        CheckActive();
+        NextEnabled = false;
+        SaveEnabled = false;
+        PreviousEnabled = false;
         
+        _activeUrl--;
         await using MemoryStream kittyStream = await _neko.GetKittyStream(_historyData[_activeUrl]);
         Image = new Bitmap(kittyStream);
+
+        CheckActive();
+        NextEnabled = true;
+        SaveEnabled = true;
     }
 
     public async Task GetNewKitty()
     {
+        NextEnabled = false;
+        SaveEnabled = false;
+        PreviousEnabled = false;
+        
         // Destroy the old image
         Image?.Dispose();
         
@@ -99,5 +121,8 @@ public class MainWindowViewModel : ReactiveObject
         }
 
         CheckActive();
+
+        NextEnabled = true;
+        SaveEnabled = true;
     }
 }
