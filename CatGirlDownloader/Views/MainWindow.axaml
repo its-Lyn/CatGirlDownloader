@@ -25,11 +25,9 @@
 
     <Grid ColumnDefinitions="100, *">
         <StackPanel Grid.Column="0" VerticalAlignment="Bottom">
-            <Border>
-                <Button Classes="Round LikeButton" Command="{Binding SaveKittyCommand}">
-                    <Image Source="/Assets/file.png" Width="35" Height="35"></Image>
-                </Button>    
-            </Border>
+            <Button Classes="Round LikeButton" Command="{Binding SaveKittyCommand}">
+                <Image Source="/Assets/file.png" Width="35" Height="35"></Image>
+            </Button>    
             
             <Button Classes="Round NextButton" Command="{Binding NewKittyCommand}">
                 <Image Source="/Assets/next.png" Width="35" Height="35" Margin="2, 0, 0, 0"></Image>
