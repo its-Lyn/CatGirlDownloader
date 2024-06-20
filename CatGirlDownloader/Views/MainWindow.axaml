@@ -26,7 +26,7 @@
                 <Image Source="/Assets/file.png" Width="35" Height="35" Margin="2 0 0 0 "></Image>
             </Button>    
             
-            <Button Classes="Round BackButton" Command="{Binding NewKittyCommand}" HotKey="Ctrl+N">
+            <Button Classes="Round BackButton" IsEnabled="{Binding PreviousEnabled}" Command="{Binding PreviousKittyCommand}" HotKey="Ctrl+P">
                 <Image Source="/Assets/back.png" Width="35" Height="35" Margin="0, 0, 5, 0"></Image>
             </Button>
             

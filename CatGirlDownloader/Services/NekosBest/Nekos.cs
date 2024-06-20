@@ -19,4 +19,7 @@ public class Nekos
             url
         );
     }
+
+    public async Task<MemoryStream> GetKittyStream(string url)
+        => new MemoryStream(await _client.GetByteFromUrl(url));
 }
