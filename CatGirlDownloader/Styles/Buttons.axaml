@@ -20,10 +20,16 @@
             </Setter>    
         </Style>
     </Style>
+   
+    <Style Selector="Button.BackButton">
+        <Setter Property="Background" Value="#fc92ab"/>
+        <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="#ffa8bd"/>
+        </Style>
+    </Style>
     
     <Style Selector="Button.LikeButton">
         <Setter Property="Background" Value="#F3D0D7"/>
-       
         <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
              <Setter Property="Background" Value="#f5dce1"/>
         </Style>

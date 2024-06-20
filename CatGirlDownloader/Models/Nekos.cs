@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.IO;
 using System.Text.Json.Serialization;
 
 namespace CatGirlDownloader.Models;
@@ -23,3 +24,5 @@ public struct NekoResult<T>
     [JsonPropertyName("results")]
     public List<T> Results { get; set; }
 }
+
+public record struct KittyData(MemoryStream Stream, string Url);

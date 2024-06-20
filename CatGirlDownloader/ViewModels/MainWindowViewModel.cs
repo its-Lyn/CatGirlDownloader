@@ -5,6 +5,7 @@ using System.Windows.Input;
 using Avalonia.Controls;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform.Storage;
+using CatGirlDownloader.Models;
 using CatGirlDownloader.Services.NekosBest;
 using CatGirlDownloader.Views;
 using ReactiveUI;
@@ -14,7 +15,7 @@ namespace CatGirlDownloader.ViewModels;
 public class MainWindowViewModel : ReactiveObject
 {
     private readonly Nekos _neko = new Nekos();
-
+    
     private Bitmap? _image;
     public Bitmap? Image
     {
@@ -47,9 +48,13 @@ public class MainWindowViewModel : ReactiveObject
 
     public async Task GetNewKitty()
     {
+        // Destroy the old image
         Image?.Dispose();
 
-        MemoryStream stream = await _neko.GetKittyStream();
-        Image = new Bitmap(stream);
+        KittyData data = await _neko.GetKittyStream();
+        Image = new Bitmap(data.Stream);
+        
+        // Destroy the new stream data.
+        await data.Stream.DisposeAsync();
     }
 }
