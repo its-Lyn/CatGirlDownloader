@@ -23,6 +23,13 @@ public class MainWindowViewModel : ReactiveObject
         set => this.RaiseAndSetIfChanged(ref _image, value);
     }
 
+    private bool _genericToggle;
+    public bool GenericToggle
+    {
+        get => _genericToggle;
+        set => this.RaiseAndSetIfChanged(ref _genericToggle, value);
+    }
+
     private bool _previousEnabled;
     public bool PreviousEnabled
     {
@@ -30,20 +37,13 @@ public class MainWindowViewModel : ReactiveObject
         set => this.RaiseAndSetIfChanged(ref _previousEnabled, value);
     }
     
-    private bool _nextEnabled;
-    public bool NextEnabled
+    private bool _loadingVisible;
+    public bool LoadingVisible
     {
-        get => _nextEnabled;
-        set => this.RaiseAndSetIfChanged(ref _nextEnabled, value);
+        get => _loadingVisible;
+        set => this.RaiseAndSetIfChanged(ref _loadingVisible, value);
     }
     
-    private bool _saveEnabled;
-    public bool SaveEnabled
-    {
-        get => _saveEnabled;
-        set => this.RaiseAndSetIfChanged(ref _saveEnabled, value);
-    }
-        
     public ICommand NewKittyCommand { get; }
     public ICommand PreviousKittyCommand { get; }
     public ICommand SaveKittyCommand { get; }
@@ -84,8 +84,8 @@ public class MainWindowViewModel : ReactiveObject
 
     private async Task GetPreviousKitty()
     {
-        NextEnabled = false;
-        SaveEnabled = false;
+        LoadingVisible = true;
+        GenericToggle = false;
         PreviousEnabled = false;
         
         _activeUrl--;
@@ -93,14 +93,15 @@ public class MainWindowViewModel : ReactiveObject
         Image = new Bitmap(kittyStream);
 
         CheckActive();
-        NextEnabled = true;
-        SaveEnabled = true;
+        
+        GenericToggle = true;
+        LoadingVisible = false;
     }
 
     public async Task GetNewKitty()
     {
-        NextEnabled = false;
-        SaveEnabled = false;
+        LoadingVisible = true;
+        GenericToggle = false;
         PreviousEnabled = false;
         
         // Destroy the old image
@@ -122,7 +123,7 @@ public class MainWindowViewModel : ReactiveObject
 
         CheckActive();
 
-        NextEnabled = true;
-        SaveEnabled = true;
+        LoadingVisible = false;
+        GenericToggle = true;
     }
 }
