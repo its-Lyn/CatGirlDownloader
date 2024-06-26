@@ -1,5 +1,6 @@
 using Avalonia.Controls;
 using CatGirlDownloader.ViewModels;
+using System;
 
 namespace CatGirlDownloader.Views;
 
@@ -11,6 +12,7 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         Instance = this;
+        Console.WriteLine($"CatGirlDownloader version {App.Version}");
         
         InitializeComponent();
         Loaded += Load;

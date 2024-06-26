@@ -8,6 +8,8 @@ namespace CatGirlDownloader;
 
 public partial class App : Application
 {
+    public static string Version = "1.0.0-release";
+
     public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);
