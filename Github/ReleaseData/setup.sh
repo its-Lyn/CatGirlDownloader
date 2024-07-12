@@ -13,6 +13,7 @@ mkdir -pv $HOME/.local/share/CatGirlDownloader
 cp -v ./CatGirlDownloader   $HOME/.local/share/CatGirlDownloader
 cp -v ./libSkiaSharp.so     $HOME/.local/share/CatGirlDownloader
 cp -v ./libHarfBuzzSharp.so $HOME/.local/share/CatGirlDownloader
+cp -v ./icon.ico            $HOME/.local/share/CatGirlDownloader
 
 cat << EOF > $HOME/.local/share/applications/CatGirlDownloader.desktop
 [Desktop Entry]
