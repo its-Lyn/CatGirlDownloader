@@ -6,7 +6,7 @@ A *quick* and easy to use C# avalonia MVVM application that helps you download k
 ![Catgirl Downloader being used.](./Github/Showcase.png)
 
 ## Installation
-Below you will find a guide on how to install Cargirl Downloader.
+Below you will find a guide on how to install CatGirl Downloader.
 
 ### Using releases page (Recommended)
 Head on over to the [Releases Page](https://github.com/its-Lyn/CatGirlDownloader/releases)! <br>
