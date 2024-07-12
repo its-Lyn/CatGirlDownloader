@@ -73,7 +73,8 @@ When running the app, instead of the buttons you can use the keybinds described 
 
 ## Credits
 This app's existence is only possible because of [nekos.best](https://nekos.best/)! <br>
-All icons used are sourced from [flaticon](https://www.flaticon.com)!
+All icons used are sourced from [flaticon](https://www.flaticon.com)! <br>
+The app icon was created by [Lilliana](https://github.com/lilyyllyyllyly)!
 
 ## License
 MIT
