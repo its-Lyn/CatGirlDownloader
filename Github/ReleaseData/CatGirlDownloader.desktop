@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Catgirl Downloader
+Icon=${HOME}/.local/share/CatGirlDownloader/icon.ico
+Exec=${HOME}/.local/share/CatGirlDownloader/CatGirlDownloader
+Categories=Utility
+Comment=Best place to download kitties!
+Terminal=false

@@ -2,10 +2,6 @@
 
 A *quick* and easy to use C# avalonia MVVM application that helps you download kitties~
 
->[!CAUTION]
->App is nearing release.
->Releases page is not yet present.
-
 ## Showcase
 ![Catgirl Downloader being used.](./Github/Showcase.png)
 

@@ -104,13 +104,17 @@ public class MainWindowViewModel : ReactiveObject
         GenericToggle = false;
         PreviousEnabled = false;
         
-        // Destroy the old image
-        Image?.Dispose();
-        
         if (_historyData.Count == 0 || _activeUrl == _historyData.Count - 1)
         {
             await using KittyData data = await _neko.GetKittyStream();
+
+            // Erase old image
+            // But this time RIGHT BEFORE switching to the new one
+            // That way the app wont crash.   
+            Image?.Dispose();
+            
             Image = new Bitmap(data.Stream);
+            
             _historyData.Add(data.Url);
             _activeUrl = _historyData.Count == 0 ? 0 : _historyData.Count - 1;
         }
