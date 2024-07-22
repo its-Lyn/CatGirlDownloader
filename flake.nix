@@ -22,6 +22,8 @@
 	  catgirl-downloader = self'.packages.catgirl-downloader;
 	};
 
+	devShells.default = pkgs.callPackage ./nix/shell.nix { };
+
 	formatter = pkgs.nixpkgs-fmt;
       };
       flake = {
