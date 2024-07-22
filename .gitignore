@@ -4,3 +4,11 @@ CatGirlDownloader/bin
 CatGirlDownloader/obj
 
 Github/Releases
+
+/out
+/.envrc
+**/*.*~
+**/#*.*#
+**/.#*
+/.direnv
+/result
